@@ -50,7 +50,8 @@ class UsersController extends Controller
         ]);
 
         $this->sendEmailConfirmationTo($user);
-        session()->flash('success', '驗證郵件已發送到您的註冊信箱，請查收。');
+        // session()->flash('success', '驗證郵件已發送到您的註冊信箱，請查收。');
+        session()->flash('success', '請複製以下鏈接以驗證帳號 http://weibo.test/signup/confirm/'.$user->activation_token);
         return redirect('/');
 
         // Auth::login($user);
@@ -61,10 +62,10 @@ class UsersController extends Controller
     protected function sendEmailConfirmationTo($user){
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'summer@example.com';
-        $name = 'Summer';
+        $from = 'k0911245920@gmail.com';
+        $name = 'kurt6783';
         $to = $user->email;
-        $subject = "感谢註冊 Weibo 應用！请確認您的信箱。";
+        $subject = "感谢註冊 Weibo 應用！請確認您的信箱。";
 
         Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
             $message->from($from, $name)->to($to)->subject($subject);
@@ -76,6 +77,7 @@ class UsersController extends Controller
 
         $user->activated = true;
         $user->activation_token = null;
+        $user->email_verified_at = now();
         $user->save();
 
         Auth::login($user);
