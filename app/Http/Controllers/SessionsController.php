@@ -34,7 +34,7 @@ class SessionsController extends Controller
           return redirect()->intended($fallback);
         }else{
           Auth::logout();
-          session()->flash('warning', '您的帳號未啟用，請檢察信箱中的註冊郵件進行啟用。');
+          session()->flash('warning', '您的帳號未啟用，請檢查信箱中的註冊郵件進行啟用。');
           return redirect('/');
         }           
        } else {
