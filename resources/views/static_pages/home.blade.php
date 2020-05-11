@@ -15,7 +15,9 @@
         <section class="user_info">
           @include('shared._user_info', ['user' => Auth::user()])
         </section>
-      </aside>
+        <section class="status mt-2">
+          @include('shared._status', ['user' => Auth::user()])
+        </section>
     </div>
   @else
     <div class="jumbotron">

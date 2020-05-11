@@ -59,7 +59,7 @@ class User extends Authenticatable
                     ->orderBy('created_at', 'desc');
     }
 
-    public function follwers(){
+    public function followers(){
         return $this->belongsToMany(User::Class, 'followers', 'user_id', 'follower_id');
     }
 
