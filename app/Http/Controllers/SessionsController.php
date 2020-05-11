@@ -21,11 +21,11 @@ class SessionsController extends Controller
 
        
 
-       if (Auth::attempt($credentials)) {
-           session()->flash('success', '欢迎回来！');
+       if (Auth::attempt($credentials, $request->has('rember'))) {
+           session()->flash('success', '歡迎回來');
            return redirect()->route('users.show', [Auth::user()]);
        } else {
-           session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
+           session()->flash('danger', '很抱歉，您的email與密碼錯誤');
            return redirect()->back()->withInput();
        }
     }
