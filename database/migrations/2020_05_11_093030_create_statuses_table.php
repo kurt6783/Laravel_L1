@@ -13,7 +13,7 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stautses', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('content');
             $table->integer('user_id')->index();
@@ -29,6 +29,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stautses');
+        Schema::dropIfExists('statuses');
     }
 }
