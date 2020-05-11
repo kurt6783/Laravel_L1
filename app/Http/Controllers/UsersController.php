@@ -51,12 +51,8 @@ class UsersController extends Controller
 
         $this->sendEmailConfirmationTo($user);
         // session()->flash('success', '驗證郵件已發送到您的註冊信箱，請查收。');
-        session()->flash('success', '請複製以下鏈接以驗證帳號 http://weibo.test/signup/confirm/'.$user->activation_token);
+        session()->flash('success', '請複製以下鏈接以驗證帳號 http://http://laravel-l1.herokuapp.com/signup/confirm/'.$user->activation_token);
         return redirect('/');
-
-        // Auth::login($user);
-        // session()->flash('success', '歡迎，您將在這裡開啟一段新的旅程~');
-        // return redirect()->route('users.show', [$user]);
     }
 
     protected function sendEmailConfirmationTo($user){
