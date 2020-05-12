@@ -50,7 +50,8 @@ class UsersController extends Controller
         ]);
 
         $this->sendEmailConfirmationTo($user);
-        session()->flash('success', '驗證郵件已發送到您的註冊信箱，請查收。'); 
+        // session()->flash('success', '驗證郵件已發送到您的註冊信箱，請查收。'); 
+        session()->flash('success','請至以下鏈結驗證: http://laravel-l1.herokuapp.com/signup/confirm/'.$user->activation_token);
         return redirect('/');
     }
 
