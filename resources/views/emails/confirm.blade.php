@@ -8,7 +8,7 @@
   <h1>感谢您在 Weibo App 網站進行註冊！</h1>
 
   <p>
-    请典籍下面的鏈接完成註冊：
+    請點擊下面的鏈接完成註冊：
     <a href="{{ route('confirm_email', $user->activation_token) }}">
       {{ route('confirm_email', $user->activation_token) }}
     </a>
